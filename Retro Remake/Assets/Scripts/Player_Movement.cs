@@ -6,11 +6,18 @@ public class Player_Movement : MonoBehaviour
     private new Rigidbody2D rigidbody;
 
     private Vector2 velocity;
-
     private float inputAxis;
 
     public float moveSpeed = 8f;
+    public float maxJumpHeight = 5f;
+    public float maxJumpTime = 1f;
 
+    public float JumpForce => (2f * maxJumpHeight) / (maxJumpTime /2f); 
+    public float gravity => (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2);
+
+    public bool grounded { get; private set; }
+    public bool jumping { get; private set; }
+    
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -19,9 +26,24 @@ public class Player_Movement : MonoBehaviour
 
     private void Update()
     {
+        grounded = rigidbody.Raycast(Vector2.down);
+
+        if (grounded) 
+        {
+            GroundMovement();
+        }
+
         HorizontalMovement();
     }
 
+    private void GroundMovement()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            velocity.y = JumpForce;
+            jumping = true;
+        }
+    }
     private void HorizontalMovement()
     {
         inputAxis = Input.GetAxis("Horizontal");
@@ -33,10 +55,9 @@ public class Player_Movement : MonoBehaviour
         Vector2 position = rigidbody.position;
         position += velocity * Time.fixedDeltaTime;
 
-        Vector2 leftEdge = camera.WorldToScreenPoint(Vector2.zero);
-        Vector2 rightEdge = camera.WorldToScreenPoint(new Vector2(Screen.width, Screen.height));
-        position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
-
+        Vector2 LeftEdge = camera.ScreenToWorldPoint(Vector2.zero);
+        Vector2 RightEdge = camera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        position.x = Mathf.Clamp(position.x, LeftEdge.x + 1.3f, RightEdge.x);
 
         rigidbody.MovePosition(position);
     }
