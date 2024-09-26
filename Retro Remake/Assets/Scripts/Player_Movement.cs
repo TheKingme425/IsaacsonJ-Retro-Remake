@@ -17,7 +17,9 @@ public class Player_Movement : MonoBehaviour
 
     public bool grounded { get; private set; }
     public bool jumping { get; private set; }
-    
+
+    public LayerMask LayerMask;
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -26,23 +28,37 @@ public class Player_Movement : MonoBehaviour
 
     private void Update()
     {
-        grounded = rigidbody.Raycast(Vector2.down);
+        HorizontalMovement();
 
-        if (grounded) 
+        grounded = rigidbody.Raycast(LayerMask,Vector2.down);
+
+        if (grounded)
         {
             GroundMovement();
         }
 
-        HorizontalMovement();
+        ApplyGravity();
     }
 
     private void GroundMovement()
     {
+        velocity.y = Mathf.Max(velocity.y, 0);
+        jumping = velocity.y < 0;
+
         if (Input.GetButtonDown("Jump"))
         {
             velocity.y = JumpForce;
             jumping = true;
         }
+    }
+
+    private void ApplyGravity()
+    {
+        bool falling = velocity.y < 0 || !Input.GetButton("Jump");
+        float multiplyer = falling ? 2f : 1f;
+
+        velocity.y += gravity * multiplyer * Time.deltaTime;
+        velocity.y = Mathf.Max(velocity.y, gravity / 2f);
     }
     private void HorizontalMovement()
     {
@@ -60,5 +76,19 @@ public class Player_Movement : MonoBehaviour
         position.x = Mathf.Clamp(position.x, LeftEdge.x + 1.3f, RightEdge.x);
 
         rigidbody.MovePosition(position);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
+        {
+           if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
+            {
+                if (transform.DotTest(collision.transform, Vector2.up))
+                {
+                    velocity.y = 0f;
+                }
+            }
+        }
     }
 }
