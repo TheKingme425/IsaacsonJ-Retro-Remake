@@ -73,7 +73,7 @@ public class Player_Movement : MonoBehaviour
 
         Vector2 LeftEdge = camera.ScreenToWorldPoint(Vector2.zero);
         Vector2 RightEdge = camera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        position.x = Mathf.Clamp(position.x, LeftEdge.x + 1.3f, RightEdge.x);
+        position.x = Mathf.Clamp(position.x, LeftEdge.x + 0.3f, RightEdge.x);
 
         rigidbody.MovePosition(position);
     }
