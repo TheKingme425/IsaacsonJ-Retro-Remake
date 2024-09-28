@@ -9543,77 +9543,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1168505894131196875, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.024
-      objectReference: {fileID: 0}
-    - target: {fileID: 1168505894131196875, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.495
-      objectReference: {fileID: 0}
-    - target: {fileID: 2416054170651553872, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: maxJumpTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2416054170651553872, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: LayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2501991441902449526, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.012
-      objectReference: {fileID: 0}
-    - target: {fileID: 2501991441902449526, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4731333186734250694, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
       propertyPath: m_Name
       value: Mario
-      objectReference: {fileID: 0}
-    - target: {fileID: 4731333186734250694, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4731333186734250694, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5133313891043146334, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_Size.x
-      value: 0.7359972
-      objectReference: {fileID: 0}
-    - target: {fileID: 5133313891043146334, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_Size.y
-      value: 0.9820534
-      objectReference: {fileID: 0}
-    - target: {fileID: 5133313891043146334, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.018058062
-      objectReference: {fileID: 0}
-    - target: {fileID: 5133313891043146334, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.003973305
-      objectReference: {fileID: 0}
-    - target: {fileID: 5133313891043146334, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_Direction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5133313891043146334, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5951072594246828241, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7817307903102012149, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8429955542454568972, guid: 4611b8ef61b54f74c9829f95eb2039dd, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

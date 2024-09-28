@@ -1,9 +1,9 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public static class Extentions
 {
-    public static bool Raycast(this Rigidbody2D rigidbody, LayerMask layerMask, Vector2 direction)
+    private static LayerMask layerMask = LayerMask.GetMask("Default");
+    public static bool Raycast(this Rigidbody2D rigidbody, Vector2 direction)
     {
         if (rigidbody.isKinematic)
         {
@@ -11,9 +11,9 @@ public static class Extentions
         }
 
         float radius = 0.25f;
-        float distance = 0.375f;
+        float distance = 0.3f;
 
-        RaycastHit2D hit = Physics2D.CircleCast(rigidbody.position, radius, direction, distance, layerMask);
+        RaycastHit2D hit = Physics2D.CircleCast(rigidbody.position, radius, direction.normalized, distance, layerMask);
         return hit.collider != null && hit.rigidbody != rigidbody;
     }
 

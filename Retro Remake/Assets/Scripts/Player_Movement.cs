@@ -17,8 +17,8 @@ public class Player_Movement : MonoBehaviour
 
     public bool grounded { get; private set; }
     public bool jumping { get; private set; }
-
-    public LayerMask LayerMask;
+    public bool running => Mathf.Abs(velocity.x) > 0.25f || Mathf.Abs(inputAxis) > 0.25f;
+    public bool sliding => (inputAxis > 0f && velocity.x < 0f) || (inputAxis < 0f && velocity.x > 0f);
 
     private void Awake()
     {
@@ -30,7 +30,7 @@ public class Player_Movement : MonoBehaviour
     {
         HorizontalMovement();
 
-        grounded = rigidbody.Raycast(LayerMask,Vector2.down);
+        grounded = rigidbody.Raycast(Vector2.down);
 
         if (grounded)
         {
@@ -50,6 +50,11 @@ public class Player_Movement : MonoBehaviour
             velocity.y = JumpForce;
             jumping = true;
         }
+         if (Input.GetButton("Jump"))
+        {
+            velocity.y = JumpForce;
+            jumping = true;
+        }
     }
 
     private void ApplyGravity()
@@ -64,6 +69,21 @@ public class Player_Movement : MonoBehaviour
     {
         inputAxis = Input.GetAxis("Horizontal");
         velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.deltaTime);
+
+        if (rigidbody.Raycast(Vector2.right * velocity.x)) 
+        {
+            velocity.x = 0f;
+        }
+
+        if (velocity.x > 0f) 
+        {
+            transform.eulerAngles = Vector3.zero;
+        } 
+        else if (velocity.x < 0f)
+        {
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
+       
     }
 
     private void FixedUpdate()
@@ -82,13 +102,11 @@ public class Player_Movement : MonoBehaviour
     {
         if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
         {
-           if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
+            if (transform.DotTest(collision.transform, Vector2.up))
             {
-                if (transform.DotTest(collision.transform, Vector2.up))
-                {
-                    velocity.y = 0f;
-                }
+                velocity.y = 0f;
             }
+
         }
     }
-}
+}   
