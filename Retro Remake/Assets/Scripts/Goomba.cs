@@ -16,7 +16,7 @@ public class Goomba : MonoBehaviour
             }
             else 
             {
-                Player.Hit();
+                player.Hit();
             }
         }
     }
