@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 3781084945472958831}
   - component: {fileID: 1706813201806369404}
   - component: {fileID: 996736420}
+  - component: {fileID: 7131425996498147904}
   m_Layer: 3
   m_Name: small
   m_TagString: Untagged
@@ -208,6 +209,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c76e138475f85b54985c7f4af356fe9a, type: 3}
   - {fileID: 21300000, guid: c69f5550626469f459823452a08efdf7, type: 3}
   framerate: 0.16666667
+--- !u!114 &7131425996498147904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951072594246828241}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52cc0920be51b4488707821b3d34924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 3781084945472958831}
+  deadSprite: {fileID: 21300000, guid: 5c78b985d44ad7447bb6a6903e3f327a, type: 3}
 --- !u!1 &8429955542454568972
 GameObject:
   m_ObjectHideFlags: 0
