@@ -21,12 +21,13 @@ public class Goomba : MonoBehaviour
         }
     }
 
-   // private void OnTriggerEnter2D(Collider2D other)
-   // {
-   //     if (other.gameObject.layer == LayerMask.NameToLayer("Shell")) {
-  //          Hit();
-   //     }
-   // }
+   private void OnTriggerEnter2D(Collider2D other)
+   {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Shell")) 
+        {
+           Hit();
+        }
+    }
 
     private void Flatten()
     {
@@ -37,11 +38,11 @@ public class Goomba : MonoBehaviour
         Destroy(gameObject, 0.5f);
     }
 
-   // private void Hit()
-    //{
-    //    GetComponent<AnimationSprite>().enabled = false;
-   //     GetComponent<DeathAnimation>().enabled = true;
-   //     Destroy(gameObject, 3f);
-   // }
+    private void Hit()
+    {
+        GetComponent<AnimationSprite>().enabled = false;
+        GetComponent<DeathAnimation>().enabled = true;
+        Destroy(gameObject, 3f);
+    }
 
 }

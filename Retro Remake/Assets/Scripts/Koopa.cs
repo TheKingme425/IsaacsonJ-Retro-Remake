@@ -62,8 +62,16 @@ public class Koopa : MonoBehaviour
         movement.direction = direction.normalized;
         movement.speed = shellSpeed;
         movement.enabled = true;
+
+        gameObject.layer = LayerMask.NameToLayer("Shell");
     }
 
+    private void Hit()
+    {
+        GetComponent<AnimationSprite>().enabled = false;
+        GetComponent<DeathAnimation>().enabled = true;
+        Destroy(gameObject, 3f);
+    }
  
 
 }
