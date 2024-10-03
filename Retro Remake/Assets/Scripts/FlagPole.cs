@@ -21,7 +21,7 @@ public class FlagPole : MonoBehaviour
 
     private IEnumerator LevelCompleteSequence(Player player)
     {
-        //Player_Movement.enabled = false;
+        player.movement.enabled = false;
 
         yield return MoveTo(player.transform, poleBottom.position);
         yield return MoveTo(player.transform, player.transform.position + Vector3.right);
@@ -32,9 +32,8 @@ public class FlagPole : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        GameManager.Instance.LoadLevel(nextWorld, nextStage);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("title screen");
     }
-
     private IEnumerator MoveTo(Transform subject, Vector3 position)
     {
         while (Vector3.Distance(subject.position, position) > 0.125f)

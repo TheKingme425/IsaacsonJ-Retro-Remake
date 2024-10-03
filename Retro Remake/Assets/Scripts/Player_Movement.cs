@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-    private new Camera camera;
-    private new Rigidbody2D rigidbody;
+    private Camera camera;
+    private Rigidbody2D rigidbody;
 
     private Vector2 velocity;
     private float inputAxis;

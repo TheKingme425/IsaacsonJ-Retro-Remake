@@ -126,4 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 1824447732179535593, guid: 0cf873b2e37b3e6439177c54e494b4c8, type: 3}
   emptyBlock: {fileID: 21300000, guid: abd8f76e7f41bcc4a89b38ad3ee026d4, type: 3}
-  maxHits: -1
+  maxHits: 3
